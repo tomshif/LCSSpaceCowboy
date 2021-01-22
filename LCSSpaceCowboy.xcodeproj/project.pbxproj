@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2524F9825BB722C006EE73C /* HUDClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9125BB722C006EE73C /* HUDClass.swift */; };
+		E2524F9925BB722C006EE73C /* PlayerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9225BB722C006EE73C /* PlayerClass.swift */; };
+		E2524F9A25BB722C006EE73C /* EntityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9325BB722C006EE73C /* EntityClass.swift */; };
+		E2524F9B25BB722C006EE73C /* LevelClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9425BB722C006EE73C /* LevelClass.swift */; };
+		E2524F9C25BB722C006EE73C /* TalentClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9525BB722C006EE73C /* TalentClass.swift */; };
+		E2524F9D25BB722C006EE73C /* GameClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9625BB722C006EE73C /* GameClass.swift */; };
+		E2524F9E25BB722C006EE73C /* PowerUpClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9725BB722C006EE73C /* PowerUpClass.swift */; };
+		E2524FA325BB7249006EE73C /* random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524FA225BB7249006EE73C /* random.swift */; };
 		F47F98AC25BB6F9A008802F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F98AB25BB6F9A008802F8 /* AppDelegate.swift */; };
 		F47F98AE25BB6F9A008802F8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F47F98AD25BB6F9A008802F8 /* GameScene.sks */; };
 		F47F98B025BB6F9A008802F8 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F47F98AF25BB6F9A008802F8 /* Actions.sks */; };
@@ -17,6 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E2524F9125BB722C006EE73C /* HUDClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDClass.swift; sourceTree = "<group>"; };
+		E2524F9225BB722C006EE73C /* PlayerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerClass.swift; sourceTree = "<group>"; };
+		E2524F9325BB722C006EE73C /* EntityClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityClass.swift; sourceTree = "<group>"; };
+		E2524F9425BB722C006EE73C /* LevelClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelClass.swift; sourceTree = "<group>"; };
+		E2524F9525BB722C006EE73C /* TalentClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalentClass.swift; sourceTree = "<group>"; };
+		E2524F9625BB722C006EE73C /* GameClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameClass.swift; sourceTree = "<group>"; };
+		E2524F9725BB722C006EE73C /* PowerUpClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUpClass.swift; sourceTree = "<group>"; };
+		E2524FA225BB7249006EE73C /* random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = random.swift; sourceTree = "<group>"; };
 		F47F98A825BB6F99008802F8 /* LCSSpaceCowboy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCSSpaceCowboy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47F98AB25BB6F9A008802F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47F98AD25BB6F9A008802F8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -40,6 +56,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2524F8F25BB70C5006EE73C /* Core Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E2524F9325BB722C006EE73C /* EntityClass.swift */,
+				E2524F9625BB722C006EE73C /* GameClass.swift */,
+				E2524F9125BB722C006EE73C /* HUDClass.swift */,
+				E2524F9425BB722C006EE73C /* LevelClass.swift */,
+				E2524F9225BB722C006EE73C /* PlayerClass.swift */,
+				E2524F9725BB722C006EE73C /* PowerUpClass.swift */,
+				E2524F9525BB722C006EE73C /* TalentClass.swift */,
+			);
+			name = "Core Classes";
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		E2524FA025BB722F006EE73C /* Helper Files */ = {
+			isa = PBXGroup;
+			children = (
+				E2524FA225BB7249006EE73C /* random.swift */,
+			);
+			path = "Helper Files";
+			sourceTree = "<group>";
+		};
+		E2524FA525BB725D006EE73C /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				F47F98AB25BB6F9A008802F8 /* AppDelegate.swift */,
+				F47F98B325BB6F9A008802F8 /* ViewController.swift */,
+				F47F98AD25BB6F9A008802F8 /* GameScene.sks */,
+				F47F98AF25BB6F9A008802F8 /* Actions.sks */,
+				F47F98B725BB6F9D008802F8 /* Main.storyboard */,
+				F47F98BB25BB6F9D008802F8 /* LCSSpaceCowboy.entitlements */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
 		F47F989F25BB6F99008802F8 = {
 			isa = PBXGroup;
 			children = (
@@ -59,15 +111,12 @@
 		F47F98AA25BB6F99008802F8 /* LCSSpaceCowboy */ = {
 			isa = PBXGroup;
 			children = (
-				F47F98AB25BB6F9A008802F8 /* AppDelegate.swift */,
-				F47F98AD25BB6F9A008802F8 /* GameScene.sks */,
-				F47F98AF25BB6F9A008802F8 /* Actions.sks */,
 				F47F98B125BB6F9A008802F8 /* GameScene.swift */,
-				F47F98B325BB6F9A008802F8 /* ViewController.swift */,
+				E2524FA525BB725D006EE73C /* Misc */,
+				E2524F8F25BB70C5006EE73C /* Core Classes */,
+				E2524FA025BB722F006EE73C /* Helper Files */,
 				F47F98B525BB6F9D008802F8 /* Assets.xcassets */,
-				F47F98B725BB6F9D008802F8 /* Main.storyboard */,
 				F47F98BA25BB6F9D008802F8 /* Info.plist */,
-				F47F98BB25BB6F9D008802F8 /* LCSSpaceCowboy.entitlements */,
 			);
 			path = LCSSpaceCowboy;
 			sourceTree = "<group>";
@@ -144,8 +193,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2524F9D25BB722C006EE73C /* GameClass.swift in Sources */,
+				E2524F9E25BB722C006EE73C /* PowerUpClass.swift in Sources */,
+				E2524F9825BB722C006EE73C /* HUDClass.swift in Sources */,
 				F47F98B425BB6F9A008802F8 /* ViewController.swift in Sources */,
+				E2524F9C25BB722C006EE73C /* TalentClass.swift in Sources */,
 				F47F98B225BB6F9A008802F8 /* GameScene.swift in Sources */,
+				E2524F9B25BB722C006EE73C /* LevelClass.swift in Sources */,
+				E2524F9A25BB722C006EE73C /* EntityClass.swift in Sources */,
+				E2524F9925BB722C006EE73C /* PlayerClass.swift in Sources */,
+				E2524FA325BB7249006EE73C /* random.swift in Sources */,
 				F47F98AC25BB6F9A008802F8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
