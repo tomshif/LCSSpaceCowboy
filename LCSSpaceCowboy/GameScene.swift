@@ -29,6 +29,8 @@ class GameScene: SKScene {
     
     var cam = SKCameraNode()
     
+    var player:PlayerClass?
+    
     
     override func didMove(to view: SKView) {
         
@@ -212,6 +214,7 @@ class GameScene: SKScene {
     {
         gameState=GAMESTATE.NEWGAME
         changeState(to: GAMESTATE.INGAME)
+        
     }
     
     func loadInGame()
