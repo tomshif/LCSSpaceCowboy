@@ -92,6 +92,14 @@ class GameScene: SKScene {
             {
                 changeState(to: GAMESTATE.INGAME)
             }
+            
+        case 31:
+            if (gameState==GAMESTATE.INGAME)
+            {
+            
+            }
+            
+            
         case 35: // Test - P
             starAnchor.isPaused.toggle()
         default:
