@@ -27,13 +27,21 @@ class GameScene: SKScene {
     var lastStarSpawn=NSDate()
     let starSpawnDelay:Double=0.25
     
+    var cam = SKCameraNode()
+    
+    
     override func didMove(to view: SKView) {
+        
+        addChild(cam)
+        self.camera=cam
+        
+        
         
         addChild(mmAnchor)
         addChild(gameAnchor)
         addChild(puAnchor)
-        addChild(hudAnchor)
-        addChild(talentAnchor)
+        cam.addChild(hudAnchor)
+        cam.addChild(talentAnchor)
         addChild(starAnchor)
         
         
@@ -75,6 +83,15 @@ class GameScene: SKScene {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
 
+        case 17: // Test - T --- Show Talent Screen
+            if (gameState==GAMESTATE.INGAME)
+            {
+                changeState(to: GAMESTATE.TALENT)
+            }
+            else if (gameState==GAMESTATE.TALENT)
+            {
+                changeState(to: GAMESTATE.INGAME)
+            }
         case 35: // Test - P
             starAnchor.isPaused.toggle()
         default:
@@ -97,6 +114,7 @@ class GameScene: SKScene {
         } // for each node at click spot
     } // handleMMClick
     
+
     
     func changeState(to: Int)
     {
@@ -120,7 +138,21 @@ class GameScene: SKScene {
                 loadInGame()
             }
             
+        case GAMESTATE.INGAME:
+            if (to == GAMESTATE.TALENT)
+            {
+                loadTalentTree()
+            }
             
+        case GAMESTATE.TALENT:
+            if (to == GAMESTATE.INGAME)
+            {
+                talentAnchor.removeAllChildren()
+                gameAnchor.isPaused=false
+                starAnchor.isPaused=false
+                gameState=to
+                
+            }
         default:
             print("Invalid gameState change.")
         } // switch
@@ -178,6 +210,19 @@ class GameScene: SKScene {
     {
         gameState=GAMESTATE.INGAME
     }
+    
+    func loadTalentTree()
+    {
+        gameAnchor.isPaused=true
+        starAnchor.isPaused=true
+        gameState=GAMESTATE.TALENT
+        let talentFrame=SKSpriteNode(imageNamed: "talentTreeFrame")
+        talentAnchor.addChild(talentFrame)
+        talentFrame.zPosition=1000
+        
+    }
+    
+    
     
     func drawStar(existing: Bool)
     {
