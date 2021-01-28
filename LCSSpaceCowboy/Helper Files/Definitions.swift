@@ -15,6 +15,8 @@ struct GAMESTATE
     static let INGAME:Int = 2
     static let TALENT:Int=3
     static let LOADGAME:Int=4
+    static let NEWGAME:Int=5
+    
     static let POPUP:Int=100
 
 }
