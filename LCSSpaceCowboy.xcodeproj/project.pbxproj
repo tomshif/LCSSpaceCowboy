@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E212403525C3145D0078B04D /* PopUpClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E212403425C3145D0078B04D /* PopUpClass.swift */; };
+		E212403825C3147A0078B04D /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E212403725C3147A0078B04D /* Definitions.swift */; };
 		E2524F9825BB722C006EE73C /* HUDClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9125BB722C006EE73C /* HUDClass.swift */; };
 		E2524F9925BB722C006EE73C /* PlayerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9225BB722C006EE73C /* PlayerClass.swift */; };
 		E2524F9A25BB722C006EE73C /* EntityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9325BB722C006EE73C /* EntityClass.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E212403425C3145D0078B04D /* PopUpClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpClass.swift; sourceTree = "<group>"; };
+		E212403725C3147A0078B04D /* Definitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		E2524F9125BB722C006EE73C /* HUDClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDClass.swift; sourceTree = "<group>"; };
 		E2524F9225BB722C006EE73C /* PlayerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerClass.swift; sourceTree = "<group>"; };
 		E2524F9325BB722C006EE73C /* EntityClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityClass.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 		E2524F8F25BB70C5006EE73C /* Core Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E212403425C3145D0078B04D /* PopUpClass.swift */,
 				E2524F9325BB722C006EE73C /* EntityClass.swift */,
 				E2524F9625BB722C006EE73C /* GameClass.swift */,
 				E2524F9125BB722C006EE73C /* HUDClass.swift */,
@@ -75,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				E2524FA225BB7249006EE73C /* random.swift */,
+				E212403725C3147A0078B04D /* Definitions.swift */,
 			);
 			path = "Helper Files";
 			sourceTree = "<group>";
@@ -193,7 +199,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E212403825C3147A0078B04D /* Definitions.swift in Sources */,
 				E2524F9D25BB722C006EE73C /* GameClass.swift in Sources */,
+				E212403525C3145D0078B04D /* PopUpClass.swift in Sources */,
 				E2524F9E25BB722C006EE73C /* PowerUpClass.swift in Sources */,
 				E2524F9825BB722C006EE73C /* HUDClass.swift in Sources */,
 				F47F98B425BB6F9A008802F8 /* ViewController.swift in Sources */,
