@@ -10,6 +10,7 @@ import SpriteKit
 
 class PlayerClass
 {
+    var sprite = SKSpriteNode (imageNamed: "enemyBlue1")
     var shieldCurrent:CGFloat = 100
     var shieldCurrentMax:CGFloat = 100
     var shieldBase:CGFloat = 100
@@ -31,6 +32,7 @@ class PlayerClass
     var active1 = TalentClass()
     var active2 = TalentClass()
     var active3 = TalentClass()
+    var theScene:GameScene?
     //variables
     
     // Constants
@@ -40,7 +42,14 @@ class PlayerClass
     init()
     {
         
-    }// init()
+    }// init
+    
+    init(scene:GameScene)
+    {
+        theScene = scene
+        theScene!.gameAnchor.addChild(sprite)
+        sprite.position.x = -200
+    }// init GameScene
     
     func moveLeft ()
     {
@@ -69,22 +78,16 @@ class PlayerClass
     
     func fireActive1 ()
     {
-      
-        
         
     }//fireActive1
     
     func fireActive2 ()
     {
        
-       
-        
     }//fireActive2
     
     func fireActive3 ()
     {
-       
-       
         
     }//fireActive3
     
