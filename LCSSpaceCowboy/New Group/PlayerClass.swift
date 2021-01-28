@@ -11,6 +11,8 @@ import SpriteKit
 class PlayerClass
 {
     var sprite = SKSpriteNode (imageNamed: "enemyBlue1")
+    var verticalSpeed:CGFloat = 16
+    var horizontalSpeed:CGFloat = 10
     var shieldCurrent:CGFloat = 100
     var shieldCurrentMax:CGFloat = 100
     var shieldBase:CGFloat = 100
@@ -53,22 +55,22 @@ class PlayerClass
     
     func moveLeft ()
     {
-        
+        sprite.position.x += -horizontalSpeed
     }//moveLeft
     
     func moveRight ()
     {
-        
+        sprite.position.x += horizontalSpeed
     }//moveRight
 
     func moveUp ()
     {
-        
+        sprite.position.y -= -verticalSpeed
     }//moveUp
     
     func moveDown ()
     {
-        
+        sprite.position.y -= verticalSpeed
     }//moveDown
     
     func fireLaser ()
