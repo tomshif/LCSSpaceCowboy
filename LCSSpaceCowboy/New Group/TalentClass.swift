@@ -67,6 +67,11 @@ class TalentClass
         
     } // init()
     
+    init(scene: GameScene)
+    {
+        
+    }//init gamescene
+    
     func update()
     {
         
