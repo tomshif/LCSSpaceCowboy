@@ -31,6 +31,11 @@ class GameScene: SKScene {
     
     var player:PlayerClass?
     
+    var leftPressed:Bool=false
+    var rightPressed:Bool=false
+    var upPressed:Bool=false
+    var downPressed:Bool=false
+    
     
     override func didMove(to view: SKView) {
         
@@ -85,6 +90,18 @@ class GameScene: SKScene {
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
 
+        case 0:
+            leftPressed=true
+            
+        case 1:
+            downPressed=true
+            
+        case 2:
+            rightPressed=true
+            
+        case 13:
+            upPressed=true
+        
         case 17: // Test - T --- Show Talent Screen
             if (gameState==GAMESTATE.INGAME)
             {
@@ -108,6 +125,51 @@ class GameScene: SKScene {
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
     } // keyDown
+    
+    override func keyUp(with event: NSEvent) {
+        switch event.keyCode {
+
+        case 0:
+            leftPressed=false
+            
+        case 1:
+            downPressed=false
+            
+        case 2:
+            rightPressed=false
+            
+        case 13:
+            upPressed=false
+            
+        case 35: // Test - P
+            starAnchor.isPaused.toggle()
+        default:
+            print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
+        }
+    } // keyDown
+    
+    func inGameCheckKeys()
+    {
+        if rightPressed
+        {
+            player?.moveRight()
+        }
+        
+        if leftPressed
+        {
+            player?.moveLeft()
+        }
+        
+        if upPressed
+        {
+            player?.moveUp()
+        }
+        
+        if downPressed
+        {
+            player?.moveDown()
+        }
+    } // inGameCheckKeys()
     
     func handleMMClick(at: CGPoint)
     {
@@ -214,6 +276,7 @@ class GameScene: SKScene {
     {
         gameState=GAMESTATE.NEWGAME
         changeState(to: GAMESTATE.INGAME)
+        player=PlayerClass(scene: self)
         
     }
     
@@ -282,6 +345,7 @@ class GameScene: SKScene {
             {
                 drawStar(existing: false)
             }
+            inGameCheckKeys()
             
             
         default:
