@@ -10,19 +10,22 @@ import SpriteKit
 
 class HUDClass
 {
-    var score = SKLabelNode()
+    var score = SKLabelNode(fontNamed: "arial" )
     
-    var sheild = SKSpriteNode()
+    var hudSheild = SKSpriteNode(imageNamed: "hudSheild")
     
-    var levelMap = SKSpriteNode()
+    //var levelMap = SKSpriteNode
     
-    var powerUp = SKSpriteNode()
+    var powerUp = SKSpriteNode(imageNamed: "blankPowerUp")
     
-    var special1 = SKSpriteNode()
+    var special1 = SKSpriteNode(imageNamed: "blankSpecial")
     
-    var special2 = SKSpriteNode()
+    var special2 = SKSpriteNode(imageNamed: "blankSpecial")
     
-    var special3 = SKSpriteNode()
+    var special3 = SKSpriteNode(imageNamed: "blankSpecial")
+    
+    var theScene: GameScene?
+    
     // Variables
     
     
@@ -33,10 +36,29 @@ class HUDClass
     // Optionals
     
     
+    
+    
     init()
     {
         
-    } // init()
+    }
+    //init
+    
+    init(scene:GameScene)
+    {
+        theScene=scene
+        
+        
+        theScene!.hudAnchor.addChild(hudSheild)
+        
+        theScene!.hudAnchor.addChild(special1)
+        
+        theScene!.hudAnchor.addChild(special2)
+        
+        theScene!.hudAnchor.addChild(special3)
+        
+    }
+    // init(gamescene)
     
     func update ()
     {
