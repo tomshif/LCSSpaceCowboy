@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		805E57A625C3519800A08ED6 /* Space Cowboy Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 805E57A525C3519800A08ED6 /* Space Cowboy Sounds */; };
 		E212403525C3145D0078B04D /* PopUpClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E212403425C3145D0078B04D /* PopUpClass.swift */; };
 		E212403825C3147A0078B04D /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E212403725C3147A0078B04D /* Definitions.swift */; };
 		E2524F9825BB722C006EE73C /* HUDClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9125BB722C006EE73C /* HUDClass.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		805E57A525C3519800A08ED6 /* Space Cowboy Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Space Cowboy Sounds"; path = "Space Cowboy Sounds/Space Cowboy Sounds"; sourceTree = "<group>"; };
 		E212403425C3145D0078B04D /* PopUpClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpClass.swift; sourceTree = "<group>"; };
 		E212403725C3147A0078B04D /* Definitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		E2524F9125BB722C006EE73C /* HUDClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDClass.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		F47F98AA25BB6F99008802F8 /* LCSSpaceCowboy */ = {
 			isa = PBXGroup;
 			children = (
+				805E57A525C3519800A08ED6 /* Space Cowboy Sounds */,
 				F47F98B125BB6F9A008802F8 /* GameScene.swift */,
 				E2524FA525BB725D006EE73C /* Misc */,
 				E2524F8F25BB70C5006EE73C /* Core Classes */,
@@ -188,6 +191,7 @@
 				F47F98AE25BB6F9A008802F8 /* GameScene.sks in Resources */,
 				F47F98B625BB6F9D008802F8 /* Assets.xcassets in Resources */,
 				F47F98B025BB6F9A008802F8 /* Actions.sks in Resources */,
+				805E57A625C3519800A08ED6 /* Space Cowboy Sounds in Resources */,
 				F47F98B925BB6F9D008802F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

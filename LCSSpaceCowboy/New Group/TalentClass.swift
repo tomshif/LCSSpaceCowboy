@@ -21,6 +21,7 @@ class TalentClass
     var hullHeal:CGFloat = 0
     var coolDown:Double = 0
     var lastUsed = NSDate()
+    var theScene:GameScene?
     
     func pulseKnockback()
     {
@@ -66,6 +67,11 @@ class TalentClass
     {
         
     } // init()
+    
+    init(scene: GameScene)
+    {
+        theScene = scene
+    }//init gamescene
     
     func update()
     {
