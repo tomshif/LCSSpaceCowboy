@@ -10,7 +10,7 @@ import SpriteKit
 
 class EntityClass
 {
-    var enemy1 = SKSpriteNode(imageNamed:"enemyBlack1")
+    var sprite = SKSpriteNode(imageNamed:"enemyBlack1")
    // var enemy2 = SKSpriteNode(imageNamed:"enemyBlack2")
    // var enemy3 = SKSpriteNode(imageNamed:"enemyBlack3")
     
@@ -30,8 +30,8 @@ class EntityClass
     var theScene:GameScene?
     init(scene:GameScene){
         theScene = scene
-        theScene!.hudAnchor.addChild(enemy1)
-        enemy1.position.x = 400
+        theScene!.gameAnchor.addChild(sprite)
+        sprite.position.x = 400
         
     }//init scene:gamescene
     
