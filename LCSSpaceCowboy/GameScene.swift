@@ -36,6 +36,9 @@ class GameScene: SKScene {
     var upPressed:Bool=false
     var downPressed:Bool=false
     
+    var entList=[EntityClass]()
+    var theHud:HUDClass?
+    
     
     override func didMove(to view: SKView) {
         
@@ -277,6 +280,8 @@ class GameScene: SKScene {
         gameState=GAMESTATE.NEWGAME
         changeState(to: GAMESTATE.INGAME)
         player=PlayerClass(scene: self)
+        spawnEnemy()
+        theHud=HUDClass(scene: self)
         
     }
     
@@ -294,8 +299,14 @@ class GameScene: SKScene {
         talentAnchor.addChild(talentFrame)
         talentFrame.zPosition=1000
         
-    }
+    } // loadTalentTree
     
+    
+    func spawnEnemy()
+    {
+        let tempEnemy=EntityClass(scene: self)
+        entList.append(tempEnemy)
+    }
     
     
     func drawStar(existing: Bool)
