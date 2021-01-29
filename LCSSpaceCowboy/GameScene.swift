@@ -25,7 +25,7 @@ class GameScene: SKScene {
 
     let MAXSTARS:Int=100
     var lastStarSpawn=NSDate()
-    let starSpawnDelay:Double=0.25
+    let starSpawnDelay:Double=0.05
     
     var cam = SKCameraNode()
     
@@ -324,7 +324,7 @@ class GameScene: SKScene {
         let starScale=random(min: 0.1, max: 0.7)
         tempStar.setScale(starScale)
         
-        var STARSPEED:Double=20-(10*Double(starScale))
+        var STARSPEED:Double=10-(10*Double(starScale))
         
         if(existing)
         {
@@ -347,9 +347,10 @@ class GameScene: SKScene {
     func drawNebula()
     {
         let nebNum=Int(random(min: 1, max: (CGFloat(NEBULANUM)+0.999999999999)))
-        let tempNeb=SKSpriteNode(imageNamed: "nebula\(nebNum)")
-        let nebScale = random(min: 0.1, max: 0.7)
+        let tempNeb=SKSpriteNode(imageNamed: "nebula8")
+        let nebScale = random(min: 1.0, max: 2.0)
         tempNeb.alpha=nebScale
+        tempNeb.alpha=0.8
         tempNeb.setScale(nebScale)
         tempNeb.zRotation = random(min: 0, max: CGFloat.pi*2)
         tempNeb.position.x = size.width/2 + tempNeb.size.width/2
