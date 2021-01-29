@@ -39,9 +39,13 @@ class GameScene: SKScene {
     var entList=[EntityClass]()
     var theHud:HUDClass?
     
+    let NEBULANUM:Int=7
+    var lastNebula=NSDate()
+    let NEBULADELAY:Double=30
+    
     
     override func didMove(to view: SKView) {
-        
+        self.backgroundColor=NSColor.black
         addChild(cam)
         self.camera=cam
         
@@ -273,6 +277,7 @@ class GameScene: SKScene {
         {
             drawStar(existing: true)
         }
+        drawNebula()
     } // loadMainMenuScreen
     
     func loadNewGame()
@@ -339,6 +344,29 @@ class GameScene: SKScene {
         
     } // drawStar
     
+    func drawNebula()
+    {
+        let nebNum=Int(random(min: 1, max: (CGFloat(NEBULANUM)+0.999999999999)))
+        let tempNeb=SKSpriteNode(imageNamed: "nebula\(nebNum)")
+        let nebScale = random(min: 0.1, max: 0.7)
+        tempNeb.alpha=nebScale
+        tempNeb.setScale(nebScale)
+        tempNeb.zRotation = random(min: 0, max: CGFloat.pi*2)
+        tempNeb.position.x = size.width/2 + tempNeb.size.width/2
+        tempNeb.position.y = random(min: -size.height/2, max: size.height/2)
+        tempNeb.zPosition = -100
+        var STARSPEED:Double=30-(10*Double(nebScale))
+        let distRatio = (size.width/2 + tempNeb.position.x)/size.width
+        STARSPEED = STARSPEED*Double(distRatio)
+        let runAction=SKAction.sequence([SKAction.moveTo(x: -size.width/2-tempNeb.size.width/2, duration: STARSPEED), SKAction.removeFromParent()])
+        tempNeb.run(runAction)
+        
+        starAnchor.addChild(tempNeb)
+        
+        lastNebula=NSDate()
+        
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
@@ -349,12 +377,20 @@ class GameScene: SKScene {
             {
                 drawStar(existing: false)
             }
+            if -lastNebula.timeIntervalSinceNow > NEBULADELAY
+            {
+                drawNebula()
+            }
             
             
         case GAMESTATE.INGAME:
             if starAnchor.children.count < MAXSTARS && -lastStarSpawn.timeIntervalSinceNow > starSpawnDelay
             {
                 drawStar(existing: false)
+            }
+            if -lastNebula.timeIntervalSinceNow > NEBULADELAY
+            {
+                drawNebula()
             }
             inGameCheckKeys()
             
