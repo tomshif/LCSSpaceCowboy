@@ -20,8 +20,6 @@ class TalentClass
     var laserCooldown:CGFloat = 0
     var hullHeal:CGFloat = 0
     var coolDown:Double = 0
-    
-    
     var lastUsed = NSDate()
     var theScene:GameScene?
     

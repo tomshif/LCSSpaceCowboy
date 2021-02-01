@@ -49,12 +49,14 @@ class GameScene: SKScene {
     
     var lastCloud=NSDate()
     var cloudDelay:Double=30
-    
+    var theGame=GameClass()
     
     override func didMove(to view: SKView) {
         self.backgroundColor=NSColor.black
         addChild(cam)
         self.camera=cam
+        
+        theGame=GameClass(scene: self)
         
         
         
@@ -64,6 +66,7 @@ class GameScene: SKScene {
         cam.addChild(hudAnchor)
         cam.addChild(talentAnchor)
         addChild(starAnchor)
+        
         
         
         changeState(to: GAMESTATE.MAINMENU)
@@ -297,6 +300,7 @@ class GameScene: SKScene {
         gameState=GAMESTATE.NEWGAME
         changeState(to: GAMESTATE.INGAME)
         player=PlayerClass(scene: self)
+        theGame.player=player
         spawnEnemy()
         theHud=HUDClass(scene: self)
         

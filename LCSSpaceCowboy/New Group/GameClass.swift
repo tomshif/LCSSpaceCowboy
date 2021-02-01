@@ -11,6 +11,8 @@ import SpriteKit
 class GameClass
 {
     // Variables
+    var player:PlayerClass?
+    var theScene:GameScene?
     
     
     // Constants
@@ -23,5 +25,10 @@ class GameClass
     {
         
     } // init()
+    
+    init(scene:GameScene)
+    {
+        theScene=scene
+    }
     
 } // GameClass
