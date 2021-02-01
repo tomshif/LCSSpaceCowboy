@@ -13,6 +13,7 @@ class PlayerClass
     var sprite = SKSpriteNode (imageNamed: "enemyBlue1")
     var verticalSpeed:CGFloat = 16
     var horizontalSpeed:CGFloat = 10
+    var edgeSpeed:CGFloat = 0
     var shieldCurrent:CGFloat = 100
     var shieldCurrentMax:CGFloat = 100
     var shieldBase:CGFloat = 100
@@ -56,21 +57,56 @@ class PlayerClass
     func moveLeft ()
     {
         sprite.position.x += -horizontalSpeed
+        
+        if sprite.position.x < -theScene!.size.width/2 + sprite.size.width/2
+        {
+            horizontalSpeed = edgeSpeed
+            sprite.position.x = -theScene!.size.width/2 + sprite.size.width/2 + 2
+        }
+        
+        if sprite.position.x > -theScene!.size.width/2 + sprite.size.width/2
+        {
+            horizontalSpeed = 10
+        }
     }//moveLeft
     
     func moveRight ()
     {
         sprite.position.x += horizontalSpeed
+        
+        if sprite.position.x > -theScene!.size.width/7 + sprite.size.width/2
+        {
+            horizontalSpeed = edgeSpeed
+            sprite.position.x = -theScene!.size.width/7 + sprite.size.width/2 - 2
+        }
     }//moveRight
 
     func moveUp ()
     {
-        sprite.position.y -= -verticalSpeed
+        sprite.position.y += verticalSpeed
+        
+        if sprite.position.y > theScene!.size.height/2 - sprite.size.height/2
+        {
+            verticalSpeed = edgeSpeed
+            sprite.position.y = theScene!.size.height/2 - sprite.size.height/2 - 1
+        }
+        
+        if sprite.position.y < theScene!.size.height/2 - sprite.size.height/2
+        {
+            verticalSpeed = 16
+        }
     }//moveUp
     
     func moveDown ()
     {
         sprite.position.y -= verticalSpeed
+        
+        if sprite.position.y < -theScene!.size.height/2 + sprite.size.height/2
+        {
+            verticalSpeed = edgeSpeed
+            sprite.position.y = -theScene!.size.height/2 + sprite.size.height/2 + 4
+        }
+        
     }//moveDown
     
     func fireLaser ()
