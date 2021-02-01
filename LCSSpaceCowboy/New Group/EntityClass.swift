@@ -67,22 +67,7 @@ class EntityClass
     
     func movement(){
         
-        sprite.position.y += 5
-        
-        
-        
-        
-       // if(enemyMovementType == 0){
-        if(sprite.position.y < -600){
-            sprite.position.y += 5
-            
-        }//if far down go up
-        if(sprite.position.y > 600){
-            sprite.position.y -= 5
-            
-        }//if far up go down
-      //  }//if type is 0
-        
+        sprite.position.y += -200
         
         }//movement function
    
