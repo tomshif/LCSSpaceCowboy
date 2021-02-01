@@ -11,7 +11,7 @@ import SpriteKit
 class PlayerClass
 {
     var sprite = SKSpriteNode (imageNamed: "enemyBlue1")
-    var laser = SKSpriteNode (imageNamed: "laserGreen05")
+    
     //objects
     var verticalSpeed:CGFloat = 16
     var horizontalSpeed:CGFloat = 10
@@ -127,6 +127,7 @@ class PlayerClass
     {
         if -lastLaserFire.timeIntervalSinceNow > LASER_COOLDOWN
         {
+            let laser = SKSpriteNode (imageNamed: "laserGreen05")
             laser.position = sprite.position
             laser.zPosition = sprite.zPosition - 1
             theScene!.gameAnchor.addChild(laser)

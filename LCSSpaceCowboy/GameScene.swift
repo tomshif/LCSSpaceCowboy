@@ -35,6 +35,7 @@ class GameScene: SKScene {
     var rightPressed:Bool=false
     var upPressed:Bool=false
     var downPressed:Bool=false
+    var firePressed:Bool=false
     
     var entList=[EntityClass]()
     var theHud:HUDClass?
@@ -138,6 +139,9 @@ class GameScene: SKScene {
             
         case 35: // Test - P
             starAnchor.isPaused.toggle()
+            
+        case 49: // space
+            firePressed=true
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
@@ -160,6 +164,10 @@ class GameScene: SKScene {
             
         case 35: // Test - P
             starAnchor.isPaused.toggle()
+            
+        case 49: // space
+            firePressed=false
+            
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
@@ -185,6 +193,11 @@ class GameScene: SKScene {
         if downPressed
         {
             player?.moveDown()
+        }
+        
+        if firePressed
+        {
+            player?.fireLaser()
         }
     } // inGameCheckKeys()
     
