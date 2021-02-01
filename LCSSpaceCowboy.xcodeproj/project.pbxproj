@@ -18,6 +18,7 @@
 		E2524F9D25BB722C006EE73C /* GameClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9625BB722C006EE73C /* GameClass.swift */; };
 		E2524F9E25BB722C006EE73C /* PowerUpClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524F9725BB722C006EE73C /* PowerUpClass.swift */; };
 		E2524FA325BB7249006EE73C /* random.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2524FA225BB7249006EE73C /* random.swift */; };
+		E254AAA325C893020067B50B /* talentBuilder.txt in Resources */ = {isa = PBXBuildFile; fileRef = E254AAA225C893020067B50B /* talentBuilder.txt */; };
 		F47F98AC25BB6F9A008802F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47F98AB25BB6F9A008802F8 /* AppDelegate.swift */; };
 		F47F98AE25BB6F9A008802F8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F47F98AD25BB6F9A008802F8 /* GameScene.sks */; };
 		F47F98B025BB6F9A008802F8 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F47F98AF25BB6F9A008802F8 /* Actions.sks */; };
@@ -39,6 +40,7 @@
 		E2524F9625BB722C006EE73C /* GameClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameClass.swift; sourceTree = "<group>"; };
 		E2524F9725BB722C006EE73C /* PowerUpClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUpClass.swift; sourceTree = "<group>"; };
 		E2524FA225BB7249006EE73C /* random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = random.swift; sourceTree = "<group>"; };
+		E254AAA225C893020067B50B /* talentBuilder.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = talentBuilder.txt; sourceTree = "<group>"; };
 		F47F98A825BB6F99008802F8 /* LCSSpaceCowboy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCSSpaceCowboy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47F98AB25BB6F9A008802F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47F98AD25BB6F9A008802F8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				805E57A525C3519800A08ED6 /* Space Cowboy Sounds */,
 				F47F98B125BB6F9A008802F8 /* GameScene.swift */,
+				E254AAA225C893020067B50B /* talentBuilder.txt */,
 				E2524FA525BB725D006EE73C /* Misc */,
 				E2524F8F25BB70C5006EE73C /* Core Classes */,
 				E2524FA025BB722F006EE73C /* Helper Files */,
@@ -192,6 +195,7 @@
 				F47F98B625BB6F9D008802F8 /* Assets.xcassets in Resources */,
 				F47F98B025BB6F9A008802F8 /* Actions.sks in Resources */,
 				805E57A625C3519800A08ED6 /* Space Cowboy Sounds in Resources */,
+				E254AAA325C893020067B50B /* talentBuilder.txt in Resources */,
 				F47F98B925BB6F9D008802F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,29 @@
+# Talent List
+
+
+# All lines that start with # are ignored.
+
+# Name
+# Description
+# Modifies
+# 0 - Shield
+# 1 - Hull
+# 2 - Laser damage
+# 3 - Power up time
+# 4 - Special ability cooldown
+# 5 - Shield speed
+# 6 - Laser cool down
+# 7 - Hull rebuild (always 5 seconds)
+# 10 - Pusle Knockback
+# 11 - Laser Beam
+# 12 - Reflection Shield
+# 13 - Time slow
+# 14 - Missile Swarm
+# 15 - Shotgun Laser
+# 16 - Deploy Mines
+
+# Mod Amount ( 0 for active)
+
+Shields Up, +10% shield strength, 0, 0.1
+
+
