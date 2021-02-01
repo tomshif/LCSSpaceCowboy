@@ -10,6 +10,14 @@ import SpriteKit
 
 class EntityClass
 {
+    
+    func update(){
+        
+        
+        
+    }//update()
+    
+    
     var sprite = SKSpriteNode(imageNamed:"enemyBlack1")
    // var enemy2 = SKSpriteNode(imageNamed:"enemyBlack2")
    // var enemy3 = SKSpriteNode(imageNamed:"enemyBlack3")
