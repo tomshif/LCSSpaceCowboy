@@ -39,9 +39,13 @@ class GameScene: SKScene {
     var entList=[EntityClass]()
     var theHud:HUDClass?
     
-    let NEBULANUM:Int=7
+    let NEBULANUM:Int=8
     var lastNebula=NSDate()
     let NEBULADELAY:Double=30
+    
+    let PLANETNUM:Int=6
+    var lastPlanet=NSDate()
+    var planetDelay:Double=15
     
     
     override func didMove(to view: SKView) {
@@ -278,6 +282,7 @@ class GameScene: SKScene {
             drawStar(existing: true)
         }
         drawNebula()
+        drawPlanet()
     } // loadMainMenuScreen
     
     func loadNewGame()
@@ -323,7 +328,7 @@ class GameScene: SKScene {
         tempStar.position.y = random(min: -size.height/2, max: size.height/2)
         let starScale=random(min: 0.1, max: 0.7)
         tempStar.setScale(starScale)
-        
+        tempStar.zPosition = -100
         var STARSPEED:Double=10-(10*Double(starScale))
         
         if(existing)
@@ -347,15 +352,15 @@ class GameScene: SKScene {
     func drawNebula()
     {
         let nebNum=Int(random(min: 1, max: (CGFloat(NEBULANUM)+0.999999999999)))
-        let tempNeb=SKSpriteNode(imageNamed: "nebula8")
-        let nebScale = random(min: 1.0, max: 2.0)
+        let tempNeb=SKSpriteNode(imageNamed: "nebula\(nebNum)")
+        let nebScale = random(min: 0.6, max: 1.5)
         tempNeb.alpha=nebScale
         tempNeb.alpha=0.8
         tempNeb.setScale(nebScale)
         tempNeb.zRotation = random(min: 0, max: CGFloat.pi*2)
         tempNeb.position.x = size.width/2 + tempNeb.size.width/2
         tempNeb.position.y = random(min: -size.height/2, max: size.height/2)
-        tempNeb.zPosition = -100
+        tempNeb.zPosition = -110
         var STARSPEED:Double=30-(10*Double(nebScale))
         let distRatio = (size.width/2 + tempNeb.position.x)/size.width
         STARSPEED = STARSPEED*Double(distRatio)
@@ -366,7 +371,48 @@ class GameScene: SKScene {
         
         lastNebula=NSDate()
         
-    }
+    } // drawNebula
+    
+    func drawPlanet()
+    {
+        let planetNum=Int(random(min: 1, max: (CGFloat(PLANETNUM)+0.999999999999)))
+        let tempPlanet=SKSpriteNode(imageNamed: "planet\(planetNum)")
+        let planetScale = random(min: 0.4, max: 1.0)
+        tempPlanet.alpha=planetScale
+        tempPlanet.alpha=1.0
+        tempPlanet.setScale(planetScale)
+        tempPlanet.zRotation = random(min: 0, max: CGFloat.pi*2)
+        tempPlanet.position.x = size.width/2 + tempPlanet.size.width/2
+        tempPlanet.position.y = random(min: -size.height/2, max: size.height/2)
+        tempPlanet.zPosition = -90
+        var STARSPEED:Double=15-(10*Double(planetScale))
+        let distRatio = (size.width/2 + tempPlanet.position.x)/size.width
+        STARSPEED = STARSPEED*Double(distRatio)
+        let runAction=SKAction.sequence([SKAction.moveTo(x: -size.width/2-tempPlanet.size.width/2, duration: STARSPEED), SKAction.removeFromParent()])
+        tempPlanet.run(runAction)
+        
+        starAnchor.addChild(tempPlanet)
+        
+        lastPlanet=NSDate()
+        planetDelay=Double(random(min: 15, max: 25))
+    } // drawNebula
+    
+    func updateGameBG()
+    {
+        if starAnchor.children.count < MAXSTARS && -lastStarSpawn.timeIntervalSinceNow > starSpawnDelay
+        {
+            drawStar(existing: false)
+        }
+        if -lastNebula.timeIntervalSinceNow > NEBULADELAY
+        {
+            drawNebula()
+        }
+        
+        if -lastPlanet.timeIntervalSinceNow > planetDelay
+        {
+            drawPlanet()
+        }
+    } // updateGameBG
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
@@ -374,25 +420,11 @@ class GameScene: SKScene {
         switch gameState
         {
         case GAMESTATE.MAINMENU:
-            if starAnchor.children.count < MAXSTARS && -lastStarSpawn.timeIntervalSinceNow > starSpawnDelay
-            {
-                drawStar(existing: false)
-            }
-            if -lastNebula.timeIntervalSinceNow > NEBULADELAY
-            {
-                drawNebula()
-            }
+            updateGameBG()
             
             
         case GAMESTATE.INGAME:
-            if starAnchor.children.count < MAXSTARS && -lastStarSpawn.timeIntervalSinceNow > starSpawnDelay
-            {
-                drawStar(existing: false)
-            }
-            if -lastNebula.timeIntervalSinceNow > NEBULADELAY
-            {
-                drawNebula()
-            }
+            updateGameBG()
             inGameCheckKeys()
             
             
