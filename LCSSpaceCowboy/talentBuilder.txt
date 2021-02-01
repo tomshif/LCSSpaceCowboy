@@ -25,5 +25,17 @@
 # Mod Amount ( 0 for active)
 
 Shields Up, +10% shield strength, 0, 0.1
-
+Hull Up, +10% hull strength, 0, 0.1
+laser Damage Up, +10% laser damage, 0, 0.1
+Power Up Time, +10% power up duration, 0, 0.1
+Shield Recharge Up, +10% shield recharge rate, 0, 0.1
+Laser Cool Down, -10% laser recharge rate, 0, 0.1
+Hull Regen, +1% hull regeneration, 0, 0.01
+Pulse Knockback, Knocks back all enemies, 1, 0
+Laser Beam, Fires a continuous laser, 1, 0
+Reflection Shield, Reflects all enemies projectiles, 1, 0
+Time Slow, Enemies are all slowed down, 1, 0
+Missile Swarm, Fires a swarm of missiles that target enemies, 1, 0
+Shotgun Laser, Fires a short burst of laser beams, 1, 0
+Deploy Mines, Deploys mines that blow up on contact, 1, 0
 
