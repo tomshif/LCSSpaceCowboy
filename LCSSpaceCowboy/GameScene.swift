@@ -325,7 +325,7 @@ class GameScene: SKScene {
     
     func spawnEnemy()
     {
-        let tempEnemy=EntityClass(scene: self)
+        let tempEnemy=EntityClass(scene: self, game: theGame)
         entList.append(tempEnemy)
     }
     
