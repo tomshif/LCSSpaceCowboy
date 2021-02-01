@@ -328,7 +328,7 @@ class GameScene: SKScene {
     
     func drawStar(existing: Bool)
     {
-        // This function will add a single star to the background and have it move across the screen. It is scaled and speed adjusted for parallax effect.
+        // This function will add a single star to the background and have it move across the screen. It is scaled and speed-adjusted for parallax effect.
         
         let tempStar=SKSpriteNode(imageNamed: "star")
         tempStar.position.x = size.width*0.5+tempStar.size.width/2
