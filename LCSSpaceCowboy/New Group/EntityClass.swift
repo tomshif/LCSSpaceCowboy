@@ -23,7 +23,7 @@ class EntityClass
     var isAlive:Bool = true
     var enemyMovementType:CGFloat = random(min: 0, max:1)
     // Constants
-    var speed:Int = 0
+    var speed:CGFloat = 5
     
     // Optionals
     var cactus:Bool = false
@@ -67,8 +67,14 @@ class EntityClass
     
     func movement(){
         
-        sprite.position.y += -200
-        
+        sprite.position.y += speed
+        if(sprite.position.y > 600){
+            speed = -5
+        }//if positon is higher than 600
+        if(sprite.position.y < -600){
+               speed = 5
+           }//if positon is higher than 600
+           
         }//movement function
    
     
