@@ -47,6 +47,9 @@ class GameScene: SKScene {
     var lastPlanet=NSDate()
     var planetDelay:Double=15
     
+    var lastCloud=NSDate()
+    var cloudDelay:Double=30
+    
     
     override func didMove(to view: SKView) {
         self.backgroundColor=NSColor.black
@@ -252,6 +255,10 @@ class GameScene: SKScene {
         mmFrame.zPosition=5
         mmAnchor.addChild(mmFrame)
         
+        let mmLCS=SKSpriteNode(imageNamed: "lcsgamedesign")
+        mmLCS.position = CGPoint(x: -size.width*0.3, y: -size.height*0.3)
+        mmLCS.zPosition=1000
+        mmAnchor.addChild(mmLCS)
         
         let mmNewGameButton=SKSpriteNode(imageNamed: "mm_NewGameButton")
         mmNewGameButton.position.y = mmFrame.size.height*0.3
@@ -274,14 +281,14 @@ class GameScene: SKScene {
         
         
         gameState=GAMESTATE.MAINMENU
-        
+        drawCloud()
         
         // predraw stars
         for _ in 1...MAXSTARS
         {
             drawStar(existing: true)
         }
-        drawNebula()
+        //drawNebula()
         drawPlanet()
     } // loadMainMenuScreen
     
@@ -373,6 +380,30 @@ class GameScene: SKScene {
         
     } // drawNebula
     
+    func drawCloud()
+    {
+        let cloudNum=Int(random(min: 1, max: (CGFloat(2.999999999999))))
+        let tempCloud=SKSpriteNode(imageNamed: "cloud\(cloudNum)")
+        let nebScale = random(min: 1, max: 1.5)
+        tempCloud.alpha=nebScale
+        tempCloud.alpha=0.2
+        tempCloud.setScale(nebScale)
+        tempCloud.position.x = size.width/2 + tempCloud.size.width/2
+        tempCloud.position.y = random(min: -size.height/2, max: size.height/2)
+        tempCloud.zPosition = -115
+        tempCloud.colorBlendFactor=1
+        tempCloud.color=NSColor(calibratedRed: random(min: 0, max: 1), green: random(min: 0, max: 1), blue: random(min: 0, max: 1), alpha: 1)
+        var STARSPEED:Double=30-(5*Double(nebScale))
+        let distRatio = (size.width/2 + tempCloud.position.x)/size.width
+        STARSPEED = STARSPEED*Double(distRatio)
+        let runAction=SKAction.sequence([SKAction.moveTo(x: -size.width/2-tempCloud.size.width/2, duration: STARSPEED), SKAction.removeFromParent()])
+        tempCloud.run(runAction)
+        
+        starAnchor.addChild(tempCloud)
+        
+        lastCloud=NSDate()
+    }
+    
     func drawPlanet()
     {
         let planetNum=Int(random(min: 1, max: (CGFloat(PLANETNUM)+0.999999999999)))
@@ -385,7 +416,7 @@ class GameScene: SKScene {
         tempPlanet.position.x = size.width/2 + tempPlanet.size.width/2
         tempPlanet.position.y = random(min: -size.height/2, max: size.height/2)
         tempPlanet.zPosition = -90
-        var STARSPEED:Double=15-(10*Double(planetScale))
+        var STARSPEED:Double=5-(2*Double(planetScale))
         let distRatio = (size.width/2 + tempPlanet.position.x)/size.width
         STARSPEED = STARSPEED*Double(distRatio)
         let runAction=SKAction.sequence([SKAction.moveTo(x: -size.width/2-tempPlanet.size.width/2, duration: STARSPEED), SKAction.removeFromParent()])
@@ -405,12 +436,17 @@ class GameScene: SKScene {
         }
         if -lastNebula.timeIntervalSinceNow > NEBULADELAY
         {
-            drawNebula()
+            //drawNebula()
         }
         
         if -lastPlanet.timeIntervalSinceNow > planetDelay
         {
             drawPlanet()
+        }
+        
+        if -lastCloud.timeIntervalSinceNow > cloudDelay
+        {
+            drawCloud()
         }
     } // updateGameBG
     
