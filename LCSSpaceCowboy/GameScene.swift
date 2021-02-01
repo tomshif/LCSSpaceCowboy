@@ -469,8 +469,9 @@ class GameScene: SKScene {
             for enemy in entList
             {
                 enemy.update()
+                
             }
-            
+        
             
         default:
             break
