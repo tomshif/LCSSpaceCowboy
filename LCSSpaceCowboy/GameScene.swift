@@ -466,6 +466,10 @@ class GameScene: SKScene {
         case GAMESTATE.INGAME:
             updateGameBG()
             inGameCheckKeys()
+            for enemy in entList
+            {
+                enemy.update()
+            }
             
             
         default:
