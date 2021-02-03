@@ -17,6 +17,8 @@ class GameScene: SKScene {
     var hudAnchor=SKSpriteNode()
     var talentAnchor=SKSpriteNode()
     var starAnchor=SKSpriteNode()
+    var plAnchor = SKSpriteNode()
+    
     
     var gameState:Int = -1
     
@@ -67,6 +69,7 @@ class GameScene: SKScene {
         cam.addChild(hudAnchor)
         cam.addChild(talentAnchor)
         addChild(starAnchor)
+        addChild(plAnchor)
         
         
         
@@ -131,12 +134,6 @@ class GameScene: SKScene {
             else if (gameState==GAMESTATE.TALENT)
             {
                 changeState(to: GAMESTATE.INGAME)
-            }
-            
-        case 31:
-            if (gameState==GAMESTATE.INGAME)
-            {
-            
             }
             
             
@@ -313,6 +310,7 @@ class GameScene: SKScene {
             }
             if (to == GAMESTATE.MAINMENU)
             {
+                plAnchor.removeAllChildren()
                 gameAnchor.removeAllChildren()
                 loadMainMenuScreen()
             }
