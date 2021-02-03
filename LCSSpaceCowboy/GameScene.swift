@@ -80,6 +80,9 @@ class GameScene: SKScene {
         case GAMESTATE.MAINMENU:
             handleMMClick(at: pos)
             
+        case GAMESTATE.POPUP:
+            handleClickPU(at: pos)
+            
         default:
             break
         } // switch
@@ -140,8 +143,24 @@ class GameScene: SKScene {
         case 35: // Test - P
             starAnchor.isPaused.toggle()
             
+        case 44: // / - Test action speed controls
+            if (starAnchor.speed == 1.0)
+            {
+                starAnchor.speed = 0.2
+            }
+            else
+            {
+                starAnchor.speed = 1.0
+            }
+            
         case 49: // space
             firePressed=true
+            
+        case 53: // ESC - Exit game
+            if gameState==GAMESTATE.INGAME
+            {
+                currentPopUp=PopUpClass(theScene: self, popType: POPTYPE.YESNO, parentNode: puAnchor, popText: "Exit Game?")
+            }
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
@@ -169,7 +188,7 @@ class GameScene: SKScene {
             firePressed=false
             
         default:
-            print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
+            break
         }
     } // keyDown
     
@@ -200,6 +219,53 @@ class GameScene: SKScene {
             player?.fireLaser()
         }
     } // inGameCheckKeys()
+    
+    func handleClickPU(at: CGPoint) -> Int
+    {
+        // This function handles clicks when we're showing a pop up window
+        // For now, all it does is remove the pop up if the user clicks OK or YES
+        
+        
+        var retValue:Int=PUBUTTONS.ERROR
+
+        
+        if (currentPopUp != nil)
+        {
+            retValue = currentPopUp!.checkClick(pos: at)
+            print("Pop up retValue = \(retValue)")
+            switch currentPopUp!.prevGameState
+            {
+            case GAMESTATE.INGAME:
+                if retValue==PUBUTTONS.YES && currentPopUp!.type==POPTYPE.YESNO
+                {
+                    currentPopUp!.destroy()
+                    print("Changing to main menu.")
+                    changeState(to: GAMESTATE.MAINMENU)
+                }
+                else if retValue==PUBUTTONS.NO && currentPopUp!.type == POPTYPE.YESNO
+                {
+                    currentPopUp!.destroy()
+                }
+                
+            default:
+                print("Error handling pop up - Unhandled response.")
+            
+            } // switch
+            
+            
+
+            
+        } // if current popup isn't nil
+        else
+        {
+            print("ERROR - No current pop up while in pop up state.")
+        }
+        
+        return retValue
+        
+    } // handleClickPU()
+    
+
     
     func handleMMClick(at: CGPoint)
     {
@@ -244,6 +310,11 @@ class GameScene: SKScene {
             if (to == GAMESTATE.TALENT)
             {
                 loadTalentTree()
+            }
+            if (to == GAMESTATE.MAINMENU)
+            {
+                gameAnchor.removeAllChildren()
+                loadMainMenuScreen()
             }
             
         case GAMESTATE.TALENT:
@@ -314,6 +385,7 @@ class GameScene: SKScene {
         changeState(to: GAMESTATE.INGAME)
         player=PlayerClass(scene: self)
         theGame.player=player
+        
         spawnEnemy()
         theHud=HUDClass(scene: self)
         
