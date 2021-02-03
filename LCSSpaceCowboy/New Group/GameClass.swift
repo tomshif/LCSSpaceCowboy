@@ -13,6 +13,7 @@ class GameClass
     // Variables
     var player:PlayerClass?
     var theScene:GameScene?
+    var score:Int=0
     
     
     // Constants
