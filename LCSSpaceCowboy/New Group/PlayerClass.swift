@@ -65,7 +65,7 @@ class PlayerClass
     init(scene:GameScene)
     {
         theScene = scene
-        theScene!.gameAnchor.addChild(sprite)
+        theScene!.plAnchor.addChild(sprite)
         sprite.position.x = -200
     }// init GameScene
     
@@ -131,12 +131,12 @@ class PlayerClass
             laser.position = sprite.position
             laser.zRotation = sprite.zRotation
             laser.zPosition = sprite.zPosition - 1
-            theScene!.gameAnchor.addChild(laser)
+            theScene!.plAnchor.addChild(laser)
             
             let tempx = cos(laser.zRotation)*1000 + sprite.position.x
             let tempy = sin(laser.zRotation)*1000 + sprite.position.y
             
-            let laserSeq = SKAction.sequence([SKAction.move(to: CGPoint(x: tempx, y: tempy), duration: 1.0), SKAction.removeFromParent()])
+            let laserSeq = SKAction.sequence([SKAction.move(to: CGPoint(x: tempx, y: tempy), duration: 0.3), SKAction.removeFromParent()])
             laser.run(laserSeq)
             lastLaserFire=NSDate()
         }
