@@ -144,10 +144,12 @@ class GameScene: SKScene {
             if (starAnchor.speed == 1.0)
             {
                 starAnchor.speed = 0.2
+                gameAnchor.speed = 0.2
             }
             else
             {
                 starAnchor.speed = 1.0
+                gameAnchor.speed = 1.0
             }
             
         case 49: // space

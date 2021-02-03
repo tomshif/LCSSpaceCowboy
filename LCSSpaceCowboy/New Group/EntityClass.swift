@@ -67,7 +67,9 @@ class EntityClass
     
     func movement(){
         
-        sprite.position.y += speed
+        
+        // All movement should be modified by the theScene!.gameAnchor.speed in order to handle the time slow
+        sprite.position.y += speed*theScene!.gameAnchor.speed
         if(sprite.position.y > 600){
             speed = -5
         }//if positon is higher than 600
