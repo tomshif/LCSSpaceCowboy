@@ -54,31 +54,36 @@ class HUDClass
     theScene!.hudAnchor.addChild(powerUp)
         powerUp.position.x = theScene!.size.width*0.45
         powerUp.position.y = -theScene!.size.height*0.40
+        //power up box
         
     theScene!.hudAnchor.addChild(hudSheild)
         hudSheild.position.x = -theScene!.size.width*0.48
         hudSheild.position.y = -theScene!.size.height*0.40
+        //sheild emote
         
-        theScene!.hudAnchor.addChild(special1)
+    theScene!.hudAnchor.addChild(special1)
         special1.position.x = -theScene!.size.width*0.45
         special1.position.y = -theScene!.size.height*0.20
+        //1nd special box
 
-        
     theScene!.hudAnchor.addChild(special2)
         special2.position.x = -theScene!.size.width*0.45
         special2.position.y = -theScene!.size.height*0.30
-
+        //2rd special box
         
     theScene!.hudAnchor.addChild(special3)
         special3.position.x = -theScene!.size.width*0.45
         special3.position.y = -theScene!.size.height*0.10
+        //3rd special box
         
     theScene!.hudAnchor.addChild(score)
-        score.text = "Score: "
+        score.text = "Score:\(theScene!.theGame.score)"
         score.fontSize = 25
         score.fontColor = NSColor.white
-        score.position.x = theScene!.size.width*0.2
+        score.position.x = theScene!.size.width*0.35
         score.position.y = theScene!.size.height*0.44
+        //score
+        
         
 
         
