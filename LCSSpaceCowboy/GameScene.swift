@@ -54,13 +54,15 @@ class GameScene: SKScene {
     var cloudDelay:Double=30
     var theGame=GameClass()
     
+    var tempTalent:TalentClass?
+    
     override func didMove(to view: SKView) {
         self.backgroundColor=NSColor.black
         addChild(cam)
         self.camera=cam
         
         theGame=GameClass(scene: self)
-        
+        tempTalent=TalentClass(scene: self)
         
         
         addChild(mmAnchor)
@@ -136,6 +138,8 @@ class GameScene: SKScene {
                 changeState(to: GAMESTATE.INGAME)
             }
             
+        case 18: // 1 - temp talent shotgun
+            tempTalent.shotgunLaser()
             
         case 35: // Test - P
             starAnchor.isPaused.toggle()
