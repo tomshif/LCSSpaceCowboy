@@ -139,7 +139,7 @@ class GameScene: SKScene {
             }
             
         case 18: // 1 - temp talent shotgun
-            tempTalent.shotgunLaser()
+            tempTalent!.shotgunLaser()
             
         case 35: // Test - P
             starAnchor.isPaused.toggle()
