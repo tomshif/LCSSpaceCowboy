@@ -73,7 +73,7 @@ class PlayerClass
     
     func moveLeft ()
     {
-        sprite.position.x += -horizontalSpeed
+        sprite.position.x += -horizontalSpeed*theScene!.plAnchor.speed
         
         if sprite.position.x < -theScene!.size.width/2 + sprite.size.width/2
         {
@@ -89,7 +89,7 @@ class PlayerClass
     
     func moveRight ()
     {
-        sprite.position.x += horizontalSpeed
+        sprite.position.x += horizontalSpeed*theScene!.plAnchor.speed
         
         if sprite.position.x > -theScene!.size.width/7 + sprite.size.width/2
         {
@@ -100,7 +100,7 @@ class PlayerClass
 
     func moveUp ()
     {
-        sprite.position.y += verticalSpeed
+        sprite.position.y += verticalSpeed*theScene!.plAnchor.speed
         
         if sprite.position.y > theScene!.size.height/2 - sprite.size.height/2
         {
@@ -116,7 +116,7 @@ class PlayerClass
     
     func moveDown ()
     {
-        sprite.position.y -= verticalSpeed
+        sprite.position.y -= verticalSpeed*theScene!.plAnchor.speed
         
         if sprite.position.y < -theScene!.size.height/2 + sprite.size.height/2
         {

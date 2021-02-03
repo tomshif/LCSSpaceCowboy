@@ -51,10 +51,14 @@ class GameScene: SKScene {
     var planetDelay:Double=15
     
     var lastCloud=NSDate()
-    var cloudDelay:Double=30
+    var cloudDelay:Double=20
     var theGame=GameClass()
     
     var tempTalent:TalentClass?
+    
+    var tempSlowTimer=NSDate()
+    var tempSlowDuration:Double=3
+    
     
     override func didMove(to view: SKView) {
         self.backgroundColor=NSColor.black
@@ -149,12 +153,11 @@ class GameScene: SKScene {
             {
                 starAnchor.speed = 0.2
                 gameAnchor.speed = 0.2
+                plAnchor.speed = 0.6
+                tempSlowTimer=NSDate()
+                
             }
-            else
-            {
-                starAnchor.speed = 1.0
-                gameAnchor.speed = 1.0
-            }
+
             
         case 49: // space
             firePressed=true
@@ -543,6 +546,31 @@ class GameScene: SKScene {
         }
     } // updateGameBG
     
+    func tempUpdateSpeed()
+    {
+        if -tempSlowTimer.timeIntervalSinceNow > tempSlowDuration
+        {
+            plAnchor.speed += 0.005
+            gameAnchor.speed += 0.005
+            starAnchor.speed += 0.005
+            
+            if(plAnchor.speed > 1.0)
+            {
+                plAnchor.speed = 1.0
+            }
+            
+            if(gameAnchor.speed > 1.0)
+            {
+                gameAnchor.speed=1.0
+            }
+            
+            if(starAnchor.speed > 1.0)
+            {
+                starAnchor.speed = 1.0
+            }
+        }
+    } // tempUpdateSpeed
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
@@ -555,6 +583,7 @@ class GameScene: SKScene {
         case GAMESTATE.INGAME:
             updateGameBG()
             inGameCheckKeys()
+            tempUpdateSpeed()
             for enemy in entList
             {
                 enemy.update()
