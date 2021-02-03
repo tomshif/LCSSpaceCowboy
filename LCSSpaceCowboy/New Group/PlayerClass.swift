@@ -30,7 +30,7 @@ class PlayerClass
     var laserSpeedBase:CGFloat = 100
     //laser speed
     var lastLaserFire=NSDate()
-    let LASER_COOLDOWN:Double=0.1
+    let LASER_COOLDOWN:Double=0.125
     //laser creation
     var playerSpeedCurrent:CGFloat = 100
     var playerSpeedBase:CGFloat = 100
@@ -129,8 +129,16 @@ class PlayerClass
         {
             let laser = SKSpriteNode (imageNamed: "laserGreen05")
             laser.position = sprite.position
+            laser.zRotation = sprite.zRotation
             laser.zPosition = sprite.zPosition - 1
             theScene!.gameAnchor.addChild(laser)
+            
+            let tempx = cos(laser.zRotation)*1000 + sprite.position.x
+            let tempy = sin(laser.zRotation)*1000 + sprite.position.y
+            
+            let laserSeq = SKAction.sequence([SKAction.move(to: CGPoint(x: tempx, y: tempy), duration: 1.0), SKAction.removeFromParent()])
+            laser.run(laserSeq)
+            lastLaserFire=NSDate()
         }
     }//fireLaser
     
