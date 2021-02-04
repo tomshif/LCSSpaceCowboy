@@ -550,9 +550,9 @@ class GameScene: SKScene {
     {
         if -tempSlowTimer.timeIntervalSinceNow > tempSlowDuration
         {
-            plAnchor.speed += 0.005
-            gameAnchor.speed += 0.005
-            starAnchor.speed += 0.005
+            plAnchor.speed += 0.015
+            gameAnchor.speed += 0.015
+            starAnchor.speed += 0.015
             
             if(plAnchor.speed > 1.0)
             {
