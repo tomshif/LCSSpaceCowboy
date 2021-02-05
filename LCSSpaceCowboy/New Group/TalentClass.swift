@@ -52,7 +52,7 @@ class TalentClass
     {
         for n in (1...5)
         {
-            let angle = random(min:-CGFloat.pi/8,max:CGFloat.pi/8)
+            let angle = random(min: -CGFloat.pi/8, max: CGFloat.pi/8)
         }
     }//wide spread laser
     
