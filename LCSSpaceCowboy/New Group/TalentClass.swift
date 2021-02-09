@@ -23,6 +23,8 @@ class TalentClass
     var lastUsed = NSDate()
     var theScene:GameScene?
     
+    let SHOTGUNDIST:CGFloat=650
+    
     func pulseKnockback()
     {
         
@@ -50,20 +52,29 @@ class TalentClass
     
     func shotgunLaser()
     {
-        for n in (1...5)
+        for _ in (1...12)
         {
             let angle = random(min: -CGFloat.pi/8, max: CGFloat.pi/8)
-        }
+            let tempLaser=SKSpriteNode(imageNamed: "laserGreen15")
+            tempLaser.setScale(0.5)
+            let dx=cos(angle)*SHOTGUNDIST+theScene!.player!.sprite.position.x
+            let dy=sin(angle)*SHOTGUNDIST+theScene!.player!.sprite.position.y
+            tempLaser.position=theScene!.player!.sprite.position
+            
+            let laserAction=SKAction.sequence([SKAction.move(to: CGPoint(x: dx, y: dy), duration: 0.35),SKAction.removeFromParent()])
+            tempLaser.run(laserAction)
+            tempLaser.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat.pi*2, duration: 0.25)))
+            theScene!.plAnchor.addChild(tempLaser)
+            
+            
+        } // for each shotgun projectile
     }//wide spread laser
     
     func deployMine()
     {
         
     }//deploys mines that explode on contact
-    // Constants
 
-    
-    // Optionals
     
     
     init()
