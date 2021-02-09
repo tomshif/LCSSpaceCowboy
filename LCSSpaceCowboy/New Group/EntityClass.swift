@@ -20,12 +20,14 @@ class EntityClass
     
     // Variables
     var health:CGFloat = 0
+    var turnRate:CGFloat = 0.08
     var shieldHealth:CGFloat = 0
     var isAlive:Bool = true
     var enemyMovementType:Int = Int(random(min: 1, max:2.99999))
     // Constants
     var speedY:CGFloat = 5
     var speedX:CGFloat = 10
+    var speed:CGFloat = 4
     // Optionals
     var cactus:Bool = false
     var boss:Bool = false
@@ -49,6 +51,50 @@ class EntityClass
     {
         
     } // init()
+    
+    func pursuePlayer(){
+        let dx = theScene!.player!.sprite.position.x - sprite.position.x
+        let dy = theScene!.player!.sprite.position.y - sprite.position.y
+        var angleToPlayer = atan2(dy,dx)
+        if(angleToPlayer < 0){
+            angleToPlayer += CGFloat.pi*2
+            
+        }//anfgl
+        if (sprite.zRotation < 0){
+            sprite.zRotation += CGFloat.pi*2
+        }//sprite angle
+        if (sprite.zRotation > CGFloat.pi*2){
+            sprite.zRotation -= CGFloat.pi*2
+        }//sprite angle
+        
+        var angleDiff = sprite.zRotation - angleToPlayer
+        if(angleDiff < 0){
+            angleDiff += CGFloat.pi*2
+        }
+        if(angleDiff < CGFloat.pi){
+            sprite.zRotation -= turnRate
+        }//turn RIGHT RIGHT RIGHT RIVGHT RIGHT RIGHT RIGHT RIGHT RIGHT RITGH RIGGGHHHHHT
+        else{
+            sprite.zRotation += turnRate
+            
+        }//TURN LEFT LEFT LEFT LEFT LEFT LFETLFET LEFT LEFT LEFT LEFT LEFT
+        
+        //compute angle difference, rotate towards player.
+        let moveX = cos(sprite.zRotation)*speed
+        let moveY = sin(sprite.zRotation)*speed
+        
+        sprite.position.x += moveX
+        sprite.position.y += moveY
+        
+        //move
+    
+    
+    
+    }//pursue
+    
+    
+    
+    
    // func fireLaser(){
        // let laser=SKSpriteNode(imageNamed: "laserGreen11")
        // laser.position = sprite.position
@@ -77,7 +123,7 @@ class EntityClass
     if(sprite.position.y < -600){
         speedY = 5
             }//if positon is higher than 600
-        if(sprite.position.y < -100){
+        if(sprite.position.y < -100 ){ //player position here to dive bomb the player
             speedY = 0
             sprite.position.x -= speedX*theScene!.gameAnchor.speed
             
@@ -88,7 +134,7 @@ class EntityClass
                 speedX = 0
                 speedY = 5
                 sprite.position.y += speedY*theScene!.gameAnchor.speed
-            }//back to normal
+            }//back to original position
         }
     
     
@@ -96,7 +142,8 @@ class EntityClass
     
     
     func update(){
-    movement()
+    //movement() //fix movement then readd in
+        pursuePlayer()
     }//update
     
     
