@@ -11,7 +11,7 @@ import SpriteKit
 class PlayerClass
 {
     var sprite = SKSpriteNode (imageNamed: "enemyBlue1")
-    //objects
+    //player
     var verticalSpeed:CGFloat = 16
     var horizontalSpeed:CGFloat = 10
     var edgeSpeed:CGFloat = 0
@@ -153,17 +153,17 @@ class PlayerClass
                 shieldCurrent += 0.0166
             }
         }
-
     }//shieldRegen
     
     func damage (amount:CGFloat)
     {
-        let AMOUNT1 = 15
-        let AMOUNT2 = 25
-        let AMOUNT3 = 33
-        let AMOUNT4 = 50
-        let AMOUNT5 = 200
-    }
+        shieldCurrent -= amount
+        if (shieldCurrent < 0)
+        {
+            hullCurrent += shieldCurrent
+            shieldCurrent = 0
+        }
+    }//damage
     
     func fireActive1 ()
     {
@@ -182,7 +182,7 @@ class PlayerClass
     
     func update ()
     {
-    
+        
     }//update
 
 } // PlayerClass
