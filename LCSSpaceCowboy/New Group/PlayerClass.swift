@@ -32,7 +32,7 @@ class PlayerClass
     var laserSpeedBase:CGFloat = 100
     //laser speed
     var lastLaserFire=NSDate()
-    let LASER_COOLDOWN:Double=0.125
+    let LASER_COOLDOWN:Double=0.15
     //laser physics
     var playerSpeedCurrent:CGFloat = 100
     var playerSpeedBase:CGFloat = 100
@@ -159,6 +159,7 @@ class PlayerClass
     func damage (amount:CGFloat)
     {
         let amount = 33
+        
     }
     
     func fireActive1 ()
