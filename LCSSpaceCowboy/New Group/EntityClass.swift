@@ -80,8 +80,8 @@ class EntityClass
         }//TURN LEFT LEFT LEFT LEFT LEFT LFETLFET LEFT LEFT LEFT LEFT LEFT
         
         //compute angle difference, rotate towards player.
-        let moveX = cos(sprite.zRotation)*speed
-        let moveY = sin(sprite.zRotation)*speed
+        let moveX = cos(sprite.zRotation)*speed*theScene!.gameAnchor.speed
+        let moveY = sin(sprite.zRotation)*speed*theScene!.gameAnchor.speed
         
         sprite.position.x += moveX
         sprite.position.y += moveY
