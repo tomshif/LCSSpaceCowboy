@@ -158,8 +158,11 @@ class PlayerClass
     
     func damage (amount:CGFloat)
     {
-        let amount = 33
-        
+        let AMOUNT1 = 15
+        let AMOUNT2 = 25
+        let AMOUNT3 = 33
+        let AMOUNT4 = 50
+        let AMOUNT5 = 200
     }
     
     func fireActive1 ()

@@ -12,7 +12,7 @@ import GameplayKit
 class GameScene: SKScene {
     
     var mmAnchor=SKSpriteNode()
-    var gameAnchor = SKSpriteNode()
+    var gameAnchor=SKSpriteNode()
     var puAnchor=SKSpriteNode()
     var hudAnchor=SKSpriteNode()
     var talentAnchor=SKSpriteNode()
